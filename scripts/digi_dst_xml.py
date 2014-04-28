@@ -53,6 +53,7 @@ def construct_payload(dst_line, args):
         '</item>'\
         '</record_list>'\
         '</write_attributes>'\
+        '</do_command>'\
         '</rci_request>'\
         '</send_message>'\
         '</sci_request>' % (mac_address, dst_params[3], dst_params[0], dst_params[1], dst_params[2])
