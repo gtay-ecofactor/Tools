@@ -50,7 +50,7 @@ def output_dst_information(tz_transitions, args):
     local_end_date = tz_transitions[1].astimezone(tz)
     utc_offset_dst_start_date = local_start_date.utcoffset().total_seconds()
     utc_offset_dst_end_date = local_end_date.utcoffset().total_seconds()
-    dst_shift = utc_offset_dst_end_date - utc_offset_dst_start_date
+    dst_shift = utc_offset_dst_start_date - utc_offset_dst_end_date
     output = "%d,%d,%d,%d" % (math.floor(start_date_numeric), math.floor(end_date_numeric),
                               dst_shift, utc_offset_dst_end_date)
     if args.debug is True:
@@ -61,9 +61,6 @@ def output_dst_information(tz_transitions, args):
 
 
 def main():
-    """
-    main
-    """
     parser = setup_argument_parser()
     args = parser.parse_args()
     tz_transitions = extract_datetime_for_this_year(args.timezone)
