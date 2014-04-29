@@ -28,7 +28,7 @@ def main():
     except ValueError:
         time_offset = int(args.time, base=16)
     actual_date = local_date + timedelta(seconds=time_offset)
-    print(actual_date.strftime(fmt))
+    print(tz.normalize(actual_date).strftime(fmt))
 
 
 if __name__ == '__main__':
